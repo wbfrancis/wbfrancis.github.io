@@ -2041,7 +2041,7 @@ input, select, textarea {
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
 			background: #ffffff;
-			border-color: #9bf1ff;
+			border-color: #ffe200;
 			content: '\f00c';
 			color: #191919;
 		}
