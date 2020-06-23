@@ -1,111 +1,219 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Will's Blog</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
-		<link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
-		<link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="theme-color" content="#d13e10">
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Will Francis | Blog</title>
+    <link rel="icon" href="./public/favicon.png" />
+    <link rel='stylesheet' href='blog.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet">
+    <script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript'>//<![CDATA[ 
+      $(function(){
+        // <!--from  w ww .j  a  v a  2s  .c  o  m-->
+      // prevents jumping
+      $("a.pop-me-over").on("click", function (e) {
+          e.preventDefault();
+          console.log('erp')
+          return true;
+      });
+      $(".pop-me-over").popover();
+      });//]]>  
+      </script>
+</head>
+<body onload="document.body.classList.add('loaded')">
+  <a href="/" class='backArrow bannerIcon'>
+    <svg>
+      <path d='M 14 25 L 20 13 L 12 13 L 12 19 L 0 10.58 L 12 2 L 12 8 L 28 8 L 19 25 Z'></path>
+    </svg>
+  </a>
+  <a class="infoButton pop-me-over bannerIcon" data-toggle="popover" data-placement="left"
+  data-content="The card components are the standard design using Bootstrap that I used for other pages on the site. The collapsable blog entries are a simple bit of jQuery. The carets on each post are custom svgs transformed when clicked using CSS.">
+    
+    <svg>
+      <path d='M 15.4 13.3 L 10.5 13.3 L 9.1 28 H 16.8 L 15.4 13.3 M 10.5 11.2 L 15.4 11.2 L 16.8 5.6 L 9.1 5.6 L 10.5 11.2 M 0.7 1.4 H 25.2 V 32.2 H 0.7 L 0.7 1.4'></path>
+    </svg>
+  </a>
+  <div class="screen">
+    <div class="canvas"></div>
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
+          <div class="col-lg-8 col-md-10 col-sm-10 col-10">
+            <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed" id='parent'>
+              <div class="overflow-auto">
+                <div class="card">
+                  <div class="card-body rounded innerCard">
+                    <h5 class='card-title inline'>SceneCloud, NLP, and Python</h5>
+                    <h6 class="inline right category d-lg-inline d-md-inline d-sm-none d-none">Python Projects</h6>
+                    <div class="divider"/></div>
+                    <p class="card-text">Learning NLP for my project, SceneCloud, has been a really fun challenge.
+                    </p>
+  
+                    <div id="demo" class="collapse">
+                      <p class="card-text">As a writer, I’m really obsessed with language generally, so learning how programs chop them up into documents and corpus, learning about stop words, lemmatization, etc is right up my alley. Particularly with this screenplay analysis project, I’ve had a blast. Currently the project functions as a souped-up word cloud generator using TF-IDF techniques, but in the future I hope to make it far more sophisticated, adding other functions using sentiment analysis and even theme analysis, which will give writers like me some very interesting ways to look at their scripts from a different, potentially more objective perspective.
+                        <br> <br>
+                        However, like many writers, I am certainly no math genius. So in addition to NLP specific techniques I’ve had to refresh my (admittedly limited) knowledge of linear algebra, matrix transformations, linear regression. In all honestly, groking the full details of the Machine Learning involved in NLP is a tad beyond me. 
+                        <br> <br>
+                        Luckily though, there’s Python. 
+                        <br> <br>
+                        Python is *the* language of NLP, precisely because its NLP package support is so good that even a humanities nerd like me can basically plug-in and go. To some degree I’ve actually had to grapple with choosing between competing packages, which is certainly a problem I’m glad to have. 
+                        <br> <br>
+                        I first learned Python in college for an Intro to AI course, but this project (as well as the Udacity Full Stack Nanodegree, which uses Python as its back-end language), have really cemented my knowledge and my growing affinity for the language. I’m certainly not the first person to say that Python is great, but as someone who first learned programming with Java, I was always a little skeptical of how streamlined Python was. You don’t have to explicitly declare your variables??? What???
+                        <br> <br>
+                        But since delving deep into it I really have developed a huge appreciation for its intuitiveness and its minimalistic beauty. I certainly plan to use it in many more projects in the future.
+                      </p>
+                    </div>
+                    
+                    <a data-parent="#parent" href="#demo" data-toggle="collapse" class="img-container" aria-expanded="false">
+                      <svg class='caret-svg expand'>
+                        <path class='caret-path' d='M 4 4 L 3 5 L 21 16 L 39 5 L 38 4 L 21 14 Z' fill='black'/>
+                      </svg>
+                    </a>
+                    
+                  </div>
+                </div>
+  
+                <div class="card">
+                  <div class="card-body rounded mt-3 innerCard">
+                    <h5 class='card-title inline'>Making a Personal Website</h5>
+                    <h6 class="inline right category d-lg-inline d-md-inline d-sm-none d-none">Web Projects</h6>
+                    <div class="divider"/></div>
+                    <p class="card-text">
+                      Responsive web design is tough!
+                    </p>
+  
+                    <div id="demo2" class="collapse">
+                      <p class="card-text">
+                        I did my best to make every page of the site fully responsive to resizings (even ridiculous ones like making the dimensions the absolute minimum height and maximum width), and for the most part I succeeded. D3.js was super helpful with making the SVG panels of the main hallway motif 100% responsive, which is something I’m quite proud of. I will say, the view of the site on mobile isn’t perfect, mostly due to time constraints. But I do hope to improve it as time goes on.
+                        <br><br>
+                        My requirement of responsiveness though did lead to some unfortunate tradeoffs. For example, I originally wanted the text of the panels on the home page to be 3D, as if they were painted on the walls of the “hallway”. I had some success with this, but ultimately, because I had set a requirement for myself that the website be pretty much fully responsive, I would have had to micro target transformations for every width/height combo. Either that or figure out some way to automatically calculate angles using some kind of crazy trigonometry. I’m confident I could have figured that out eventually, but I made the decision to scrap the 3D text idea so that I could move on to other parts of the site which were more necessary and weren’t yet finished. Making these kinds of tradeoffs is hard, but it’s totally necessary to know how to prioritize different aspects of your projects in web development and in all CS work.
+                        <br><br>
+                        All in all though, I’m very pleased with how the site turned out. It’s an unorthodox design of course, but I really wanted the website to be more than just a glorified resume. I wanted it to be an element of my portfolio in and of itself, as well as a showcase of my design sensibilities and general creative vision.
+                        <br><br>
+                        And if you’re still reading this and you haven’t clicked the middle of the dark part of the hallway on the home page, do it! There’s a little easter egg.
+                      </p>
+                    </div>
+                    
+                    <a data-parent="#parent" href="#demo2" data-toggle="collapse" class="img-container" aria-expanded="false">
+                      <svg class='caret-svg expand'>
+                        <path class='caret-path' d='M 4 4 L 3 5 L 21 16 L 39 5 L 38 4 L 21 14 Z' fill='black'/>
+                      </svg>
+                    </a>
+                    
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body rounded mt-3 innerCard">
+                    <h5 class='card-title inline'>WithYourSpirit is on CNN!</h5>
+                    <h6 class="inline right category d-lg-inline d-md-inline d-sm-none d-none">Web Projects</h6>
+                    <div class="divider"/></div>
+                    <p class="card-text">
+                      <a href="https://withyourspirit.org/">WithYourSpirit.org </a>, the Catholic livestream app that I've been doing some work on <a href="https://www.cnn.com/2020/04/12/world/easter-sunday-2020-coronavirus/index.html">was featured in a CNN article this Easter.</a>
+                    </p>
+  
+                    <div id="demo3" class="collapse">
+                      <p class="card-text">
+                        I'm just a lowly backend guy on the project, but it's still really cool to see the app getting some notoriety. Generally it feels good to be working on an app that’s serving a pretty vital function in these weird quarantine times. 
+                        <br><br>
+                        WYS was also the first real React Redux project I worked on, as well as the first time I hooked up firebase and user authentication for a project outside of tutorials. Ricky, the project lead, trusted me with a whole lot on this and thankfully I was able to deliver. We’re basically ready to deploy the user functionality as soon as Ricky gets cleared up from some of his other projects (i.e. his real job), and later we plan to implement more features such as Twilio SMS alerts and notifications, donation functionality (to the churches, not to us), and potentially ad banners, as some folks have already reached out to Ricky expressing interest in advertising on the site.
+                        <br><br>
+                        Very exciting stuff!
+                      </p>
+                    </div>
+                    
+                    <a data-parent="#parent" href="#demo3" data-toggle="collapse" class="img-container" aria-expanded="false">
+                      <svg class='caret-svg expand'>
+                        <path class='caret-path' d='M 4 4 L 3 5 L 21 16 L 39 5 L 38 4 L 21 14 Z' fill='black'/>
+                      </svg>
+                    </a>
+                    
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body rounded mt-3 innerCard">
+                    <h5 class='card-title inline'>Intuition vs. Planning in Writing and Programming</h5>
+                    <h6 class="inline right category d-lg-inline d-md-inline d-sm-none d-none">Thoughts</h6>
+                    <div class="divider"/></div>
+                    <p class="card-text">
+                      So I’m naturally a very intuitive thinker and worker.
+                    </p>
+  
+                    <div id="demo3" class="collapse">
+                      <p class="card-text">
+                        I tend to prefer spontaneously working my way through problems, trusting my instincts and unconscious signals, at least in early stages. I find this allows me the most flexibility and adaptability as I process the rough edges of a problem. However, in both screenwriting and programming, this type of intuitive work can only take you so far. 
+                        <br><br>
+                        In writing, working intuitively is great for first drafts, more abstract/avant grad pieces, or when working solo, but it runs into trouble when you’re co-writing or trying to write in a medium that requires a bit more of a standardized structure, like sitcoms, which generally need a fully circular story and well-defined act breaks.
+                        <br><br>
+                        In programming, if you know what you’re doing (many of us often don’t, including me) it’s relatively straightforward to just dive into the work and plug away without first stepping back and, say, going to the whiteboard. But with a project of any real level of complexity or a project with multiple programmers, planning is absolutely necessary to achieve any kind of efficiency and to avoid problems down the line. There’s nothing worse than working on a poorly planned project, which, when time comes to integrate two disparate modules, becomes a horrible slog of duct tape fixes, explaining your (probably messy) code, and rewriting.
+                        <br><br>
+                        So what’s the solution when you’re an intuitive worker like me? Well, like everything in life, there’s ways to find a balance. 
+                        <br><br>
+                        When I recently developed a sitcom pilot with my writing partner, we did a very rough kind of outlining, more a list of story beats than anything else, and then I would take each scene that I was writing on a pretty much fully intuitive basis. This led to a first draft that was messy, full of off-the-wall ideas that didn’t necessarily connect, but it was basically coherent—in other words, it was a decent first draft. Now we have a whole lot more planning to do so that we can get a second draft that we feel comfortable sending out to people (or posting on my website).
+                        <br><br>
+                        In programming it’s quite similar. In my experience the most important parts to plan are connection points between modules, which you can usually accomplish with outlining APIs, and the particulars of data structures. One you have those larger issues squared away, there’s no reason you can’t just plug away at a few classes/functions/what-have-you. You just have to be sure to really refactor once you’re done.
+                        <br><br>
+                        So that’s basically what I’ve arrived at as my general workflow: broad outlines and important points get nailed down in planning, then we go through iterations of intuitive work, then refinement of that work, then more intuitive work, then refinement. In group projects, good, frequent communication is vital at all stages, but you don’t have to kill yourself planning every single detail if you realize you don’t have to get it perfect on the first go through. In fact, seeking total perfection at every stage is a great way to get nothing done at all. 
+                      </p>
+                    </div>
+                    
+                    <a data-parent="#parent" href="#demo3" data-toggle="collapse" class="img-container" aria-expanded="false">
+                      <svg class='caret-svg expand'>
+                        <path class='caret-path' d='M 4 4 L 3 5 L 21 16 L 39 5 L 38 4 L 21 14 Z' fill='black'/>
+                      </svg>
+                    </a>
+                    
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-lg-3 d-lg-flex d-md-none d-sm-none d-none">
+            <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed" id='parent'>
+                <div class="card categoryExtendCard">
+                  <div class="card-body rounded innerCard">
+                    <h5 class='card-title centered'>Categories</h5>
+                    <div class="divider"/></div>
+                    <ol class="list-group">
+                      <li class="list-group-item category">Python Projects</li>
+                      <li class="list-group-item category">Web Projects</li>
+                      <li class="list-group-item category">Thoughts</li>
+                    </ol>
+                    
+                  </div>
+                </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div id="textureOverlay"></div>
+  </div>
+    
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script type='module' src="./JS/blogJS/index.js"></script>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      var $myGroup = $('#parent');
+      $myGroup.on('show.bs.collapse','.collapse', function() {
+      $myGroup.find('.collapse.show').collapse('hide');
+      });
+    </script>
+    <noscript>Sorry, your browser does not support JavaScript. Please enable to view the page.</noscript>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"><strong>Will Francis</strong> <span>is giving biographical details</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">About Me</a></li>
-							<li><a href="generic.html">Portfolio</a></li>
-							<li><a href="elements.html">Blog</a></li>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main" class="alt">
-
-						<!-- One -->
-							<section id="one">
-								<div class="inner">
-									<header class="major">
-										<h1>Blog</h1>
-									</header>
-								<p> This is my blog, hello.</p>
-								</div>
-							</section>
-
-					</div>
-
-				<!-- Contact
-				<section id="contact">
-					<div class="inner">
-						<section>
-							<div class="contact-method">
-								<span class="icon solid alt fa-envelope"></span>
-								<h3>Email</h3>
-								<a href="#">willbakerfrancis@gmail.com</a>
-							</div>
-						</section>
-						<section class="split">
-							<section>
-								<div class="contact-method">
-									<span class="icon solid alt fa-phone"></span>
-									<h3>Phone</h3>
-									<span>(707) 694-1404</span>
-								</div>
-							</section>
-						</section>
-					</div>
-				</section>
-				-->
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="https://twitter.com/willB_francis" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.facebook.com/william.francis.73" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="https://www.instagram.com/wbfrancis/?hl=en" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://www.linkedin.com/in/will-francis-166b33116/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Will Francis</li>
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
+
+<!-- TO DO
+
+
+-->

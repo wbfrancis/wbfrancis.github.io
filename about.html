@@ -1,0 +1,112 @@
+<!-- http://demos.flesler.com/jquery/scrollTo/
+https://github.com/azoff/overscroll -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Will Francis | About Me</title>
+    <link rel="icon" href="./public/favicon.png" />
+    <link rel='stylesheet' href='about.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet">
+    <script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript'>//<![CDATA[ 
+      $(function(){
+        // <!--from  w ww .j  a  v a  2s  .c  o  m-->
+      // prevents jumping
+      $("a.pop-me-over").on("click", function (e) {
+          e.preventDefault();
+          console.log('erp')
+          return true;
+      });
+      $(".pop-me-over").popover();
+      });//]]>  
+      </script>
+  </head>
+<!-- picture -->
+<body onload="document.body.classList.add('loaded')">
+    <a href="/" class='backArrow bannerIcon'>
+        <svg>
+          <path d='M 14 25 L 20 13 L 12 13 L 12 19 L 0 10.58 L 12 2 L 12 8 L 28 8 L 19 25 Z'></path>
+        </svg>
+      </a>
+      <a class="infoButton pop-me-over bannerIcon" data-toggle="popover" data-placement="left"
+      data-content="This page is nothing too special, just using Bootstrap cards for these components, as in other pages.">
+        <svg>
+          <path d='M 15.4 13.3 L 10.5 13.3 L 9.1 28 H 16.8 L 15.4 13.3 M 10.5 11.2 L 15.4 11.2 L 16.8 5.6 L 9.1 5.6 L 10.5 11.2 M 0.7 1.4 H 25.2 V 32.2 H 0.7 L 0.7 1.4'></path>
+        </svg>
+      </a>
+    <div class="screen">
+        <div class="canvas">
+          <div class="wrapper">
+            <div class="container-fixed">
+              <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+                <div class="col-lg-7 col-md-7 col-sm-10 col-10">
+                  <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed" id='parent'>
+                    <div class="overflow-auto">
+                      <div class="card">
+                        <div class="card-body rounded innerCard">
+                          <h5 class='card-title'>An Artist and Programmer</h5>
+                          <div class="divider"/></div>
+                          <p class="card-text">
+                            I’m a Web Stack Developer based in Los Angeles. Currently I’m interning at the mobile app startup <a href='https://playerpager.com/'>PlayerPager</a>, building them an analytics platform in React.
+                          </p>
+                          <p class="card-text">
+                            I’ve got a good number of stacks and languages in my back pocket, but where my talents really lie is in the ability to learn new languages and paradigms rapidly and efficiently. 
+                          </p>
+                          <p class="card-text">
+                            I also have a pretty thorough background in art, specifically <a href='photos.html'>photography</a> and <a href='art-portfolio.html'>writing</a>, which gives me the creative experience to provide interesting, out-of-the-box thinking on any project I’m a part of.
+                          </p>
+                          <p class="card-text">
+                            If you're interested, you can check out my <a href='cs-portfolio.html'>portfolio and resume</a> or just go ahead and <a href='contact.html'>contact me</a>. You could also take a look around the website. Each page has an info button at the top right which explains briefly how I made the page and if there were any design decisions I grappled with. My <a href='blog.html'>blog</a> has a bunch of my thoughts about recent projects — and definitely check out the center of the dark hallway on the homepage for something fun.                           </p>
+                            
+                            
+                            
+                          
+                          <br>
+      
+                          
+                        </div>
+                      </div>
+        
+                    
+                    
+        
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3 d-lg-block d-md-block d-sm-none d-none">
+                  <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed transparent" id='parent'>
+                    <img src="./assets/me.png" class='rounded-circle mb-3' alt="">
+                      <!-- <div class="card categoryExtendCard">
+                        <div class="card-body rounded innerCard">
+                          
+                        </div>
+                      </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div id="textureOverlay"></div>
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script type='module' src="./JS/aboutJS/index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+<!-- TO DO
+
+
+-->

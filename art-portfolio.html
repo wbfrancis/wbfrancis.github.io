@@ -1,0 +1,148 @@
+<!-- http://demos.flesler.com/jquery/scrollTo/
+https://github.com/azoff/overscroll -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Will Francis | Art Portfolio</title>
+    <link rel="icon" href="./public/favicon.png" />
+    <link rel='stylesheet' href='art-portfolio.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript'>//<![CDATA[ 
+      $(function(){
+        // <!--from  w ww .j  a  v a  2s  .c  o  m-->
+      // prevents jumping
+      $("a.pop-me-over").on("click", function (e) {
+          e.preventDefault();
+          console.log('erp')
+          return true;
+      });
+      $(".pop-me-over").popover();
+      });//]]>  
+      </script>
+</head>
+<!-- bennie radio play/script, poet script and bible, CULTY pilot -->
+<body onload="document.body.classList.add('loaded')">
+    <a href="/" class='backArrow bannerIcon'>
+        <svg>
+          <path d='M 14 25 L 20 13 L 12 13 L 12 19 L 0 10.58 L 12 2 L 12 8 L 28 8 L 19 25 Z'></path>
+        </svg>
+      </a>
+      <a class="infoButton pop-me-over bannerIcon" data-toggle="popover" data-placement="left"
+      data-content="This page is nothing too special, just using a Bootstrap card for the panel, as in other pages.">
+        
+        <svg>
+          <path d='M 15.4 13.3 L 10.5 13.3 L 9.1 28 H 16.8 L 15.4 13.3 M 10.5 11.2 L 15.4 11.2 L 16.8 5.6 L 9.1 5.6 L 10.5 11.2 M 0.7 1.4 H 25.2 V 32.2 H 0.7 L 0.7 1.4'></path>
+        </svg>
+      </a>
+      <div class="screen">
+        <div class="canvas">
+          <div class="wrapper">
+            <div class="container-fixed">
+              <div class="row">
+                <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
+                <div class="col-lg-8 col-md-10 col-sm-10 col-10">
+                  <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed" id='parent'>
+                    <div class="overflow-auto">
+                      <div class="card">
+                        <div class="card-body rounded innerCard">
+                          <a href="">Link to Resume</a> <br>
+                          <div class="divider"/></div>
+                          <p class="card-text">
+                            <h6>Bennie, <em>full-length stageplay</em></h6>
+                            <div class="entry-content">
+                              <ul>
+                                <li>
+                                  <em>A dark comedy about a severely depressed girl who returns home from college only to find that her childhood imaginary friend — a toy bunny — has somehow come to life.</em> 
+                                </li>
+                                <li>
+                                  <a href="https://www.gofundme.com/f/a-professional-staged-reading-for-my-play">Raised over $3000 through GoFundMe</a> for a professional staged reading organized by Broadway producer (and my mentor on this project), <a href="https://www.playbill.com/person/david-garfinkle-vault-0000125676">David Garfinkle</a>. Postponed temporarily due to COVID.
+                                </li>
+                                <li>
+                                  Produced at Duke University in 2018 into a radioplay, complete with full cast, sound effects, and original music. <a href="https://drive.google.com/file/d/1BBYXbGH0Wg4dkWupIvjt5bTPgvKSsD9q/view?usp=sharing">Link here</a>
+                                </li>
+                                <li>Link to most recent script draft <a href="https://drive.google.com/file/d/1LTeb90UEmxrUHkMnLkH3P6SE5Wr1xHic/view">here</a></li>
+                              </ul>
+                            </div>
+                          </p>
+                          <p class="card-text">
+                            <h6>Letters To A Young Poet, <em>hour-long TV drama pilot</em> </h6>
+                            <div class="entry-content">
+                              <ul>
+                                <li>
+                                  <em>Co-written with Jackson Prince, this pilot adapts the poet Ranier Maria Rilke's <a href="https://en.wikipedia.org/wiki/Letters_to_a_Young_Poet">famous correspondence with a young poet</a> into a modern context. The pilot follows Ray Kappus, a young poet and singer-songwriter in New York City as he begins a transatlantic correspondence with the renowned poet Hugo Aguilar, currently living in Basque Spain. Through their relationship, both Ray and Hugo's reality becomes suffused with fantasy and magic, as it seems the logic of their poetry is leaking into the real world.</em> 
+                                </li>
+                                <li>
+                                  Link to most recent script draft <a href="https://drive.google.com/file/d/1alYL4kRpxKeVA0yji8xpVeS-urWek0yY/view?usp=sharing">here</a>
+                                </li>
+                                <li>
+                                  Link to show bible <a href="https://drive.google.com/file/d/1xoLewNfmdrloclmRmCoILwhFKvf55TFK/view?usp=sharing">here</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </p>
+                          <p class="card-text">
+                            <h6>Culty, <em>hour-long TV comedy pilot</em> </h6>
+                            <div class="entry-content">
+                              <ul>
+                                <li>
+                                  <em>An off-beat comedy that follows Tom, an atheist vlogger who moves in with his brother after being kicked out of his mom's basement. Turns out though, that his brother has joined a strange group that frequently meets at the local community center. Tom attends one of their "services", lead by a mysterious figure who calls himself Yeshua. It's all very... well, culty.</em> 
+                                </li>
+                                <li>
+                                  Link to most recent draft <a href="https://drive.google.com/file/d/1d6pbc8t1h_N_6HR2ALJOt9iT4MDCIgOJ/view?usp=sharing">here</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </p>
+                          <p class="card-text">
+                            <h6>Hunt, <em>short film</em></h6>
+                            <div class="entry-content">
+                              <ul>
+                                <li>
+                                  <em>HUNT follows the young Jack, who, for his 13th birthday, gets dragged along on a hunting trip with his Pawpaw, a severe man and seasoned hunter. Jack's never hunted before, but Pawpaw's determined that he get his first kill, as a kind of rite of manhood.</em> 
+                                </li>
+                                <li>
+                                  Link to most recent draft <a href="https://drive.google.com/file/d/1xBSrHKyVxkjo7uz5vLkQ2yc8YKCsIy0K/view?usp=sharing">here</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </p>
+                          <br>
+      
+                          
+                        </div>
+                      </div>
+        
+                    
+                    
+        
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+    <div id="textureOverlay"></div>
+    
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script type='module' src="./JS/artJS/index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+<!-- TO DO
+
+
+-->

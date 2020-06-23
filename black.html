@@ -1,0 +1,213 @@
+<!-- http://demos.flesler.com/jquery/scrollTo/
+https://github.com/azoff/overscroll -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Over Black</title>
+    <link rel="icon" href="./public/favicon.png" />
+    <link rel='stylesheet' href='black.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript'>//<![CDATA[ 
+      $(function(){
+        // <!--from  w ww .j  a  v a  2s  .c  o  m-->
+      // prevents jumping
+      $("a.pop-me-over").on("click", function (e) {
+          e.preventDefault();
+          console.log('erp')
+          return true;
+      });
+      $(".pop-me-over").popover();
+      });//]]>  
+      </script>
+  </head>
+<!-- picture -->
+<body onload="document.body.classList.add('loaded')">
+    <a href="/" class='backArrow bannerIcon'>
+        <svg>
+          <path d='M 14 25 L 20 13 L 12 13 L 12 19 L 0 10.58 L 12 2 L 12 8 L 28 8 L 19 25 Z'></path>
+        </svg>
+      </a>
+      <a class="infoButton pop-me-over bannerIcon" data-toggle="popover" data-placement="left"
+      data-content="This strange little Choose Your Own Adventure game was custom built by me using relatively straightforward JavaScript DOM manipulation. The font is VT323, which you can find on Google Fonts.">
+        <svg>
+          <path d='M 15.4 13.3 L 10.5 13.3 L 9.1 28 H 16.8 L 15.4 13.3 M 10.5 11.2 L 15.4 11.2 L 16.8 5.6 L 9.1 5.6 L 10.5 11.2 M 0.7 1.4 H 25.2 V 32.2 H 0.7 L 0.7 1.4'></path>
+        </svg>
+      </a>
+      <div class="title"></div>
+    <div class="screen">
+      
+      <div class="container">
+        <!-- <div class="row"><br></div> -->
+        <div class="row"><br></div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-10">
+            <div class="card">
+              <div class="card-header">
+              </div>
+              <div class="card-body">
+                <ol class="">
+                  <li class="" onclick="handleChoice(0)"></li>
+                  <br>
+                  <li class="" onclick="handleChoice(1)"></li>
+                </ol>
+              </div>
+              <div class="card-footer d-flex justify-content-around">
+                <a href="" class='gameNav' onclick="goBack()">back (b)</a>
+                <!-- <div class="d-flex"></div> -->
+                <a href="" class='gameNav' onclick="startOver()">start over (s)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="textureOverlay"></div>
+    
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src='./JS/blackJS/cube.js'></script>
+
+    <script>
+      var currentIndex = 0
+
+      function setIndex(n) {
+        if (n>=0 && n <=32) currentIndex = n
+      }
+
+      function goBack(){
+        event.preventDefault()
+        setIndex(gameCards[currentIndex].back)
+        load()
+      }
+
+      function startOver(){
+        event.preventDefault()
+        setIndex(0)
+        load()
+      }
+
+      function handleChoice(n){
+        if (gameCards[currentIndex].choices===null){
+          setIndex(0)
+        } else if (gameCards[currentIndex].choices.length===1 && n===1){
+          return
+        } else {
+          setIndex(gameCards[currentIndex].choices[n].link)
+        }
+        load()
+      }
+
+      function load(){
+        gameNotLoaded = false
+        
+          for (a of document.getElementsByClassName('gameNav')){
+            if (currentIndex===0){
+              a.style.display = 'none'
+            } else {
+              a.style.display = 'inline'
+            }
+          }
+
+        document.getElementsByClassName('card-header')[0].innerHTML = gameCards[currentIndex].narration
+        let lis = document.getElementsByTagName('li')
+        let i = 0
+        lis[0].style.display = 'list-item'
+        lis[1].style.display = 'list-item'
+        if (gameCards[currentIndex].choices === null){
+          lis[0].innerHTML = "THE END"
+          lis[1].style.display = 'none'
+        } else if (gameCards[currentIndex].choices.length===1){
+            lis[0].innerHTML = gameCards[currentIndex].choices[0].text
+            lis[1].style.display = 'none'
+        } else {
+            for (let li of lis) {
+              li.innerHTML = gameCards[currentIndex].choices[i].text
+              i++
+            }
+        } 
+      }
+    </script>
+
+    <script>
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+      var gameNotLoaded = true;
+
+      for (a of document.getElementsByClassName('gameNav')){
+        a.style.display = 'none'
+      }
+
+      for (li of document.getElementsByTagName('li')){
+        li.style.display = 'none'
+      }
+      const body = document.getElementsByTagName('body')[0]
+
+      if (isMobile){
+        load()
+      } else {
+        let title = document.getElementsByClassName('title')[0]
+        body.appendChild(title)
+        // document.getElementsByClassName('title')[0];
+        title.innerHTML = 'press ENTER to begin game'
+        title.style.position = "absolute";
+        title.style.left = '40%';
+        title.style.top = '40%';
+        title.style.color = 'white'
+      }
+
+      
+
+      // let lis = document.getElementsByTagName('li')
+      // let i = 0
+
+      // for (let li of lis) {
+      //   li.innerHTML = gameCards[0].choices[i].text
+      //   i++
+      // }
+    </script>
+
+    <script>
+      $('body').keydown(function(e){
+        // console.log(e.which)
+          if (e.which==13 && gameNotLoaded){
+            let l = document.getElementsByClassName('title')[0]
+            l.style.display = 'none'
+            load();
+          }
+          else if (e.which==66 && !gameNotLoaded){
+            goBack();
+          }
+          else if (e.which==83 && !gameNotLoaded){
+            startOver();
+          }
+          else if (e.which==49 && !gameNotLoaded){
+            handleChoice(0);
+          }
+          else if (e.which==50 && !gameNotLoaded){
+            handleChoice(1);
+          }
+      });
+    </script>
+
+    
+
+</body>
+</html>
+
+<!-- TO DO
+
+
+-->

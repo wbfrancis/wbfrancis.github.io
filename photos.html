@@ -1,0 +1,179 @@
+<!-- http://demos.flesler.com/jquery/scrollTo/
+https://github.com/azoff/overscroll -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Will Francis | Photography</title>
+    <link rel="icon" href="./public/favicon.png" />
+    <link rel='stylesheet' href='photos.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet">
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript'>//<![CDATA[ 
+      $(function(){
+        // <!--from  w ww .j  a  v a  2s  .c  o  m-->
+      // prevents jumping
+      $("a.pop-me-over").on("click", function (e) {
+          e.preventDefault();
+          console.log('erp')
+          return true;
+      });
+      $(".pop-me-over").popover();
+      });//]]>  
+      </script>
+</head>
+<body onload="document.body.classList.add('loaded')">
+    <a href="/" class='backArrow bannerIcon'>
+        <svg>
+          <path d='M 14 25 L 20 13 L 12 13 L 12 19 L 0 10.58 L 12 2 L 12 8 L 28 8 L 19 25 Z'></path>
+        </svg>
+      </a>
+      <a class="infoButton pop-me-over bannerIcon" data-toggle="popover" data-placement="left"
+      data-content="The thumbnails are arranged using Bootstrap’s grid system. They’re low res thumbnails so that the page will load quickly. After clicking a photo we enter a lightbox/modal full-resolution image gallery, which was adapted from standard lightbox tutorial designs. It uses JavaScript DOM manipulation primarily.">
+        
+        <svg>
+          <path d='M 15.4 13.3 L 10.5 13.3 L 9.1 28 H 16.8 L 15.4 13.3 M 10.5 11.2 L 15.4 11.2 L 16.8 5.6 L 9.1 5.6 L 10.5 11.2 M 0.7 1.4 H 25.2 V 32.2 H 0.7 L 0.7 1.4'></path>
+        </svg>
+      </a>
+    <div class="screen">
+        <div class="canvas">
+        <div class="wrapper">
+            <div class="container-fixed"></div>
+        </div>
+    </div>
+    <div id="textureOverlay"></div>
+    <div id='modal' class='modal'>
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+          </div>
+    </div>
+    </div>
+
+
+
+    
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script type='module' src="./JS/photosJS/index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='./JS/photosJS/photoDescriptions.js'></script>
+
+    <script>
+        let html = '';
+        let row, col, pad, image, slide, numtext;
+        for (let i=1; i <= 28; i++){
+            if (i+1%5===0){
+                
+                pad = document.createElement("div");
+                pad.setAttribute("class", "col-lg-1");
+                row.appendChild(pad)
+            }
+            if ((i-1)%5===0){
+                row = document.createElement("div")
+                row.setAttribute("class", "row")
+                document.querySelector(".container-fixed").appendChild(row)
+                pad = document.createElement("div");
+                pad.setAttribute("class", "col-lg-1 col-md-1 col-sm-0 col-0");
+                row.appendChild(pad)
+            }
+
+            col = document.createElement("div")
+
+            if (i != 27) {
+                col.setAttribute("class", "col-lg-2 col-md-2 col-sm-12 col-12")
+            } else {
+                col.setAttribute("class", "col-lg-6 col-md-6 col-sm-12 col-12")
+            }
+
+            row.appendChild(col)
+            image = document.createElement("img");
+            image.setAttribute("src", "./assets/photos_thumb/"+ i +".jpg");
+            image.setAttribute("class", "thumb-hover img-fluid")
+            image.setAttribute("onclick", "openModal();currentSlide(" + i + ")")
+            col.appendChild(image);
+
+
+            slide = document.createElement("div");
+            slide.setAttribute("class", "slide")
+            numtext = document.createElement("div");
+            numtext.setAttribute("class", "numbertext");
+            numtext.innerHTML = i + ' / 28';
+            slide.appendChild(numtext);
+            image = document.createElement("img");
+            image.setAttribute("src", "./assets/photos_full/"+ i +".jpg");
+            if (i==26 || i==28) image.setAttribute("class", "vert-img")
+            slide.appendChild(image)
+
+            document.getElementsByClassName("modal-content")[0].appendChild(slide)
+        }
+
+    </script>
+
+    <script>
+        $('body').keydown(function(e){
+            if (e.which==27){
+                closeModal();
+            }
+        });
+    </script>
+    
+    <script>
+        // Open the Modal
+        function openModal() {
+            document.getElementById("modal").style.display = "block";
+        }
+
+        // Close the Modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slide");
+            var captionText = document.getElementById("caption");
+            // console.log(slides)
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i=0; i < 28; i++){
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+            captionText.innerHTML = photoDescriptions[slideIndex-1].name + ', ' + photoDescriptions[slideIndex-1].place;
+        }
+    </script>   
+</body>
+</html>
+
+<!-- TO DO
+
+
+-->

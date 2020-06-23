@@ -1,0 +1,156 @@
+<!-- http://demos.flesler.com/jquery/scrollTo/
+https://github.com/azoff/overscroll -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Will Francis | CS Portfolio</title>
+    <link rel="icon" href="./public/favicon.png" />
+    <link rel='stylesheet' href='cs-portfolio.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet">
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript'>//<![CDATA[ 
+      $(function(){
+        // <!--from  w ww .j  a  v a  2s  .c  o  m-->
+      // prevents jumping
+      $("a.pop-me-over").on("click", function (e) {
+          e.preventDefault();
+          console.log('erp')
+          return true;
+      });
+      $(".pop-me-over").popover();
+      });//]]>  
+      </script>
+</head>
+<!-- Resume, link to github, scene_cloud, with your spirit,  -->
+<body onload="document.body.classList.add('loaded')">
+  <a href="/" class='backArrow bannerIcon'>
+    <svg>
+      <path d='M 14 25 L 20 13 L 12 13 L 12 19 L 0 10.58 L 12 2 L 12 8 L 28 8 L 19 25 Z'></path>
+    </svg>
+  </a>
+  <a class="infoButton pop-me-over bannerIcon" data-toggle="popover" data-placement="left"
+  data-content="This page is nothing too special, just using a Bootstrap card for the panel, as in other pages.">
+    <svg>
+      <path d='M 15.4 13.3 L 10.5 13.3 L 9.1 28 H 16.8 L 15.4 13.3 M 10.5 11.2 L 15.4 11.2 L 16.8 5.6 L 9.1 5.6 L 10.5 11.2 M 0.7 1.4 H 25.2 V 32.2 H 0.7 L 0.7 1.4'></path>
+    </svg>
+  </a>
+  <div class="screen">
+    <div class="canvas">
+      <div class="wrapper">
+        <div class="container-fixed">
+          <div class="row">
+            <div class="col-lg-2 col-md-1 col-sm-1 col-1"></div>
+            <div class="col-lg-8 col-md-10 col-sm-10 col-10">
+              <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed" id='parent'>
+                <div class="overflow-auto">
+                  <div class="card">
+                    <div class="card-body rounded innerCard">
+                      <a href="https://drive.google.com/file/d/1iaT9QSY_z1VrmBaHiYXS0apKFcsNGOzF/view?usp=sharing">Resume</a> <br>
+                      <a href="https://github.com/wbfrancis">Github</a>
+                      <div class="divider"/></div>
+                      <p class="card-text">
+                        <h6>SceneCloud</h6>
+                        <div class="entry-content">
+                          <ul>
+                            <li>
+                              <em>A web app using Natural Language Processing to analyze scripts and generate word clouds of character dialog, action description, etc</em> 
+                            </li>
+                            <li>Built in Python using nltk, gensim, wordcloud libraries, among others. The web page itself is React and was designed by me and implemented by a friend of mine</li>
+                            <li>Check out the <a href="">demo</a> </li>
+                          </ul>
+                        </div>
+                      </p>
+                      <p class="card-text">
+                        <h6>WithYourSpirit.org</h6>
+                        <div class="entry-content">
+                          <ul>
+                            <li>
+                              <em>A web app that helped 25K users find livestreams of church services from 500 churches in all 50 states during the COVID pandemic</em> 
+                            </li>
+                            <li>I worked on the backend, integrating the React Redux app with Firebase, establishing Cloud Firestore functionality, user authentication, admin privileges. I developed a Firebase API for other developers on the app to enable easy access to the database</li>
+                            <li>After integrating Firebase, I redesigned the New Church form (previously just a Google Form) with dynamic pagination based on how many days the particular new church has livestreamed services</li>
+                            <li><a href="https://withyourspirit.org/">Link here</a> </li>
+                          </ul>
+                        </div>
+                      </p>
+                      <p class="card-text">
+                        <h6>PlayerPager Metrics</h6>
+                        <div class="entry-content">
+                          <ul>
+                            <li>
+                              <em>A web app to provide analytics to <a href="https://playerpager.com/">PlayerPager</a>, a mobile platform for student athletes with $1M+ in funding</em> 
+                            </li>
+                            <li>Built with React and Material UI, using Fetch to access endpoints</li>
+                            <li>Currently a work in progress</li>
+                            <li>Check out the <a href="">partial demo</a> </li>
+                          </ul>
+                        </div>
+                      </p>
+                      <p class="card-text">
+                        <h6>This Website</h6>
+                        <div class="entry-content">
+                          <ul>
+                            <li>
+                              I designed this website not just as a platform for my resume but as a portfolio project in and of itself
+                            </li>
+                            <li>Uses Bootstrap, d3.js, jQuery, and JavaScript DOM Manipulation</li>
+                            <li>Click the info buttons at the top right of each page for more detailed information on how I built the site</li>
+                          </ul>
+                        </div>
+                      </p>
+                      <!-- <p class="card-text">
+                        <h6>Recipe Box</h6>
+                        <div class="entry-content">
+                          <ul>
+                            <li>
+
+                            </li>
+                            <li>
+
+                            </li>
+                            <li>
+
+                            </li>
+                          </ul>
+                        </div>
+                      </p> -->
+                    
+                      
+                      <br>
+  
+                      
+                    </div>
+                  </div>
+    
+                
+                
+    
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="textureOverlay"></div>
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script type='module' src="./JS/contactJS/index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+<!-- TO DO
+
+
+-->

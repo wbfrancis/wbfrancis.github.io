@@ -1,123 +1,143 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Contact Will</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<!-- http://demos.flesler.com/jquery/scrollTo/
+https://github.com/azoff/overscroll -->
 
-		<link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
-		<link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
-		<link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="theme-color" content="#d13e10">
-	</head>
-	<body class="is-preload">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Will Francis | Contact</title>
+    <link rel="icon" href="./public/favicon.png" />
+    <link rel='stylesheet' href='contact.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet">
+    <script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript'>//<![CDATA[ 
+      $(function(){
+        // <!--from  w ww .j  a  v a  2s  .c  o  m-->
+      // prevents jumping
+      $("a.pop-me-over").on("click", function (e) {
+          e.preventDefault();
+          console.log('erp')
+          return true;
+      });
+      $(".pop-me-over").popover();
+      });//]]>  
+      </script>
+</head>
+<body onload="document.body.classList.add('loaded')">
+    <a href="/" class='backArrow bannerIcon'>
+        <svg>
+          <path d='M 14 25 L 20 13 L 12 13 L 12 19 L 0 10.58 L 12 2 L 12 8 L 28 8 L 19 25 Z'></path>
+          
+        </svg>
+      </a>
+      <a class="infoButton pop-me-over bannerIcon" data-toggle="popover" data-placement="left"
+      data-content="The contact form on this page uses formspree.io’s api to send messages to my email. I considered just putting my email on here but ended up deciding against it so as to avoid bots who troll the web looking for loose emails. I also could have made an email that was exclusively for messages from this site, but I already have too many email addresses to deal with.">
+        <svg>
+          <path d='M 15.4 13.3 L 10.5 13.3 L 9.1 28 H 16.8 L 15.4 13.3 M 10.5 11.2 L 15.4 11.2 L 16.8 5.6 L 9.1 5.6 L 10.5 11.2 M 0.7 1.4 H 25.2 V 32.2 H 0.7 L 0.7 1.4'></path>
+        </svg>
+      </a>
+    <div class="screen">
+        <div class="canvas">
+          
+            
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-3 col-md-1 col-sm-1 col-0"></div>
+              <div class="col-lg-5 col-md-8 col-sm-8 col-12">
+                <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed">
+                    <div class="card-body rounded innerCard">
+                      <h5 class='card-title inline'>Message Me!</h5>
+                          <div class="divider"/></div>
+                          <br>
+                      <form
+                    action="https://formspree.io/mvowqqgr"
+                    method="POST"
+                    class='full-width'
+                  >
+                  <div class="row">
+                    <div class="col-6">
+                      <label for='_replyto'>
+                        Your Email:
+                        <input type="text" class="form-control" name="_replyto">
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <label for='subject'>
+                        Subject:
+                        <input type="text" class="form-control" name="subject">
+                      </label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12">
+                      <label for='message'>
+                        Message:
+                        <textarea class="form-control full-width" rows="5" name="message"></textarea>
+                      </label>
+                    </div>
+                  </div>
+                  <br>
+                  
+                  <!-- your other form fields go here -->
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+                  <button type="submit" class="btn mb-4 btn-primary">Send</button>
+                </form>
+                    </div>
+                  </div>
+                
+              </div>
+              <!-- <div class="col-1"></div> -->
+              <div class="col-lg-1 col-md-2 col-sm-2 d-sm-block d-none">
+                <div class="shadow-lg card mb-5 mt-5 mb-lg-0 outerCard fixed" id='parent'>
+                    <div class="card categoryExtendCard">
+                      <a href="https://www.linkedin.com/in/will-francis-166b33116/">
+                        <img src="./assets/linkedin.png" alt="linkedin">
+                      </a>
+                      <br>
+                      <a href="https://www.facebook.com/william.francis.73">
+                        <img src="./assets/fb.png" alt="facebook">
+                      </a>
+                      <br>
+                      <a href="https://www.instagram.com/wbfrancis/?hl=en">
+                        <img src="./assets/insta.png" alt="instagram">
+                      </a>
+                      <br>
+                      <a href="https://github.com/wbfrancis">
+                        <img src="./assets/git.png" alt="github">
+                      </a>
+                      <br>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"><strong>Will Francis</strong> <span>is giving you his email address</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="aboutme.html">About Me</a></li>
-							<li><a href="portfolio.html">Portfolio</a></li>
-							<li><a href="contact.html">Contact Me</a></li>
-						</ul>
-					</nav>
+            
+    </div>
+    <div id="textureOverlay"></div>
+    
 
 
-				<!-- Contact -->
-				<section id="contact">
-					<div class="inner">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field half">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field half">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="6"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" class="primary" /></li>
-									<li><input type="reset" value="Clear" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split">
-							<section>
-								<div class="contact-method">
-									<span class="icon solid alt fa-envelope"></span>
-									<h3>Email</h3>
-									<a href="mailto:willbakerfrancis@gmail.com">willbakerfrancis@gmail.com</a>
-								</div>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(707) 694-1404</span>
-									</div>
-								</section>
-							</section>
-						</section>
-					</div>
-				</section>
 
-				<!-- Footer -->
-				<footer id="footer">
-					<div class="inner">
-						<ul class="icons">
-							<li><a href="https://twitter.com/willB_francis" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.facebook.com/william.francis.73" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/wbfrancis/?hl=en" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://www.linkedin.com/in/will-francis-166b33116/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Will Francis </li>
-							<!--
-                            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-                            -->
-						</ul>
-					</div>
-				</footer>
+    
+    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script type='module' src="./JS/contactJS/index.js"></script>
 
-			</div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
+
+<!-- TO DO
+
+
+-->
