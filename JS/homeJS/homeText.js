@@ -52,7 +52,7 @@ export function getText(svg, v, gX, gY, width, height){
     .attr('font-family', "'Noto Sans HK', sans-serif")
     // .attr('text-shadow', 'black')
     .text('about me')
-    .attr('startOffset', 18-offsetLeftMod+'%');
+    .attr('startOffset', 18.5-offsetLeftMod+'%');
 
 
     //  web blog text
@@ -147,6 +147,6 @@ export function getText(svg, v, gX, gY, width, height){
     .attr('fill', blue)
     .attr('font-family', "'Noto Sans HK', sans-serif")
     // .attr('text-shadow', 'black')
-    .text('art portfolio')
+    .text('screenwriting')
     .attr('startOffset', "17%")
 }
