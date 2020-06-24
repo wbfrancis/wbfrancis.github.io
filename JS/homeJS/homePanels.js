@@ -122,7 +122,7 @@ export function getPanels(svg, v, gX, gY, width, height,){
         .attr('class', 'panel rightPanel panelHover')
         .on("click", function() { 
             svg.selectAll("*").remove()
-            getTransition(svg, v, gX, gY, width, height, 'art-portfolio' )
+            getTransition(svg, v, gX, gY, width, height, 'screenwriting' )
             getPanels(svg, v, gX, gY, width, height)
             let panels = document.getElementsByClassName('panel')
             for (let p of panels){

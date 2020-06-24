@@ -198,7 +198,7 @@ export function getTransition(svg, v, gX, gY, width, height, type){
                 ' L ' + v[2] + ' Z'
             break
 
-        case 'art-portfolio':
+        case 'screenwriting':
             t.fillColor='#4213c1'
             t.path[0] = 'M ' + v[0] + 
                 ' L ' + v[7] +
