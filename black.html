@@ -18,14 +18,16 @@ https://github.com/azoff/overscroll -->
       // prevents jumping
       $("a.pop-me-over").on("click", function (e) {
           e.preventDefault();
-          console.log('erp')
           return true;
       });
       $(".pop-me-over").popover();
       });//]]>  
       </script>
   </head>
-<!-- picture -->
+<!-- to do 
+  - do True Ending
+  - Rework the no conflict ending
+-->
 <body onload="document.body.classList.add('loaded')">
     <a href="/" class='backArrow bannerIcon'>
         <svg>
@@ -51,16 +53,16 @@ https://github.com/azoff/overscroll -->
               <div class="card-header">
               </div>
               <div class="card-body">
-                <ol class="">
-                  <li class="" onclick="handleChoice(0)"></li>
+                <ol id='choiceList'>
+                  <li class="choice choosable" onclick="handleChoice(0)"></li>
                   <br>
-                  <li class="" onclick="handleChoice(1)"></li>
+                  <li class="choice choosable" onclick="handleChoice(1)"></li>
                 </ol>
               </div>
-              <div class="card-footer d-flex justify-content-around">
-                <a href="" class='gameNav' onclick="goBack()">back (b)</a>
-                <!-- <div class="d-flex"></div> -->
-                <a href="" class='gameNav' onclick="startOver()">start over (s)</a>
+              <div class="card-footer d-flex justify-content-around gameNavPlace">
+                <a href="" class='gameNav removeOnEnd' onclick="goBack()"> < go back (b) > </a>
+                <a href="" class='gameNav removeOnEnd' id='startover' onclick="startOver()"> < start over (s) ></a>
+                
               </div>
             </div>
           </div>
@@ -80,6 +82,7 @@ https://github.com/azoff/overscroll -->
 
     <script>
       var currentIndex = 0
+      var trueEndFound = false
 
       function setIndex(n) {
         if (n>=0 && n <=32) currentIndex = n
@@ -99,7 +102,7 @@ https://github.com/azoff/overscroll -->
 
       function handleChoice(n){
         if (gameCards[currentIndex].choices===null){
-          setIndex(0)
+          return
         } else if (gameCards[currentIndex].choices.length===1 && n===1){
           return
         } else {
@@ -109,10 +112,21 @@ https://github.com/azoff/overscroll -->
       }
 
       function load(){
+        // localStorage.clear()
         gameNotLoaded = false
-        
+
+        let l = document.getElementsByClassName('title')[0]
+        l.style.display = 'none'
+
+        queryTrueEnding()
+
+          for (a of document.getElementsByClassName('choosable')){
+            a.classList.remove('disableHover')
+            a.classList.add('choice')
+          }
+
           for (a of document.getElementsByClassName('gameNav')){
-            if (currentIndex===0){
+            if (currentIndex===0 && a.id !== 'trueEnd'){
               a.style.display = 'none'
             } else {
               a.style.display = 'inline'
@@ -121,21 +135,78 @@ https://github.com/azoff/overscroll -->
 
         document.getElementsByClassName('card-header')[0].innerHTML = gameCards[currentIndex].narration
         let lis = document.getElementsByTagName('li')
-        let i = 0
+        
         lis[0].style.display = 'list-item'
         lis[1].style.display = 'list-item'
         if (gameCards[currentIndex].choices === null){
-          lis[0].innerHTML = "THE END"
-          lis[1].style.display = 'none'
+          addToEndingsIfNew(currentIndex)
+          lis[0].innerHTML = "*THE END*"
+          lis[0].classList.add('disableHover')
+          lis[0].classList.remove('choice')
+          lis[1].innerHTML = "(" + localStorage.endings.split(',').length + " of " + maxEndings + " endings achieved)"
+          lis[1].classList.add('disableHover')
+          lis[1].classList.remove('choice')
+          queryTrueEnding()
+          // document.getElementById('choiceList').style.listStyle = 'none !important'
         } else if (gameCards[currentIndex].choices.length===1){
-            lis[0].innerHTML = gameCards[currentIndex].choices[0].text
+            lis[0].innerHTML = "(" + (1) + ") " + gameCards[currentIndex].choices[0].text
             lis[1].style.display = 'none'
         } else {
+            let i = 0
             for (let li of lis) {
-              li.innerHTML = gameCards[currentIndex].choices[i].text
+              li.innerHTML = "(" + (i+1) + ") " + gameCards[currentIndex].choices[i].text
               i++
             }
         } 
+      }
+
+      const maxEndings = 16
+
+      function queryTrueEnding(){
+        if (localStorage.endings && localStorage.endings.split(',').length === maxEndings && !trueEndFound){
+            let startover = document.getElementsByClassName('gameNav')[1]
+            document.getElementsByClassName('gameNavPlace')[0].removeChild(startover)
+            let end = document.createElement('a')
+            end.classList.add('gameNav')
+            end.id='trueEnd'
+            console.log
+            end.onclick=()=>{goToTrueEnding()}
+            end.innerHTML = '< Advance to True Ending >'
+            end.href = ''
+            trueEndFound = true
+            // <a href="" class='gameNav' onclick="goToTrueEnding()"> < Advance to True Ending ></a>
+
+            document.getElementsByClassName('gameNavPlace')[0].appendChild(end)
+            document.getElementsByClassName('gameNavPlace')[0].appendChild(startover)
+          }
+      }
+
+      function addToEndingsIfNew(index){
+        if (!localStorage.endings){
+          localStorage.endings = index
+        } else if (!localStorage.endings.split(',').includes(index.toString())){
+          localStorage.endings += ',' + index;
+        }
+        console.log("endings: ", localStorage.endings.split(','))
+      }
+
+      function goToTrueEnding(){
+        event.preventDefault()
+        document.getElementsByClassName('card-header')[0].innerHTML = gameCards[99].narration
+        $('#choiceList').remove()
+        $('.removeOnEnd').remove()
+        $('#trueEnd').html('< Life is Nothing But a Series of Cubes >')
+        $('#trueEnd').click(()=>{
+          event.preventDefault()
+          document.getElementsByClassName('card-header')[0].innerHTML = "Created by Will Francis <br><br> Thanks for playing my cube game"
+          $('#trueEnd').html('< Reset Endings Counter to Zero>')
+          $('#trueEnd').click(()=>{
+            event.preventDefault()
+            localStorage.clear()
+            window.location.reload()
+          })
+        })
+        
       }
     </script>
 
@@ -153,18 +224,23 @@ https://github.com/azoff/overscroll -->
       }
       const body = document.getElementsByTagName('body')[0]
 
-      if (isMobile){
-        load()
-      } else {
+      // if (isMobile){
+      //   load()
+      // } else {
         let title = document.getElementsByClassName('title')[0]
         body.appendChild(title)
         // document.getElementsByClassName('title')[0];
-        title.innerHTML = 'press ENTER to begin game'
+        if (isMobile){
+          title.innerHTML = 'touch to begin game'
+        } else {
+          title.innerHTML = 'press ENTER to begin game'
+        }
+        title.onclick=()=>{load()}
         title.style.position = "absolute";
         title.style.left = '40%';
         title.style.top = '40%';
         title.style.color = 'white'
-      }
+      // }
 
       
 
@@ -179,10 +255,8 @@ https://github.com/azoff/overscroll -->
 
     <script>
       $('body').keydown(function(e){
-        // console.log(e.which)
+        console.log(e.which)
           if (e.which==13 && gameNotLoaded){
-            let l = document.getElementsByClassName('title')[0]
-            l.style.display = 'none'
             load();
           }
           else if (e.which==66 && !gameNotLoaded){
@@ -200,7 +274,34 @@ https://github.com/azoff/overscroll -->
       });
     </script>
 
-    
+    <script>
+      function watchForHover() {
+  // lastTouchTime is used for ignoring emulated mousemove events
+        let lastTouchTime = 0
+
+        function enableHover() {
+          if (new Date() - lastTouchTime < 500) return
+          document.body.classList.remove('hasNotHover')
+        }
+
+        function disableHover() {
+          console.log('disabled')
+          document.body.classList.add('hasNotHover')
+        }
+
+        function updateLastTouchTime() {
+          lastTouchTime = new Date()
+        }
+
+        document.addEventListener('touchstart', updateLastTouchTime, true)
+        document.addEventListener('touchstart', disableHover, true)
+        document.addEventListener('mousemove', enableHover, true)
+
+        enableHover()
+      }
+
+      watchForHover()
+    </script>
 
 </body>
 </html>

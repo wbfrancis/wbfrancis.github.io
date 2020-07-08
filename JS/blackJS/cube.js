@@ -306,8 +306,13 @@ const gameCards = {
     },
     32: {
         back: 31,
-        narration: "You have no more eating utensils. You lose the will to fight. You submit to the cube's will. It is not an unbenevolent master.",
+        narration: "You have no more cutlery with which to dig. You lose the will to fight. You submit to the cube. It is not an unbenevolent master.",
         choices: null
     },
+    99: {
+        back: 0,
+        narration: "You have lived many lives, some short, some long, some quite touching, some very stupid. The time comes for you to transcend your limited reality. You fall into a deep sleep with no dreams.<br><br>You wake up on March 11, 2020. You are somehow aware that Tom Hanks has just tested positive for the novel coronavirus. You see on your television (a kind of cube) that the governor of your state is urging people to do something called “social distancing” and to stay inside their homes whenever possible. You look around your home.<br><br>It’s another cube.<br><br>Goddammit.",
+        choices: null
+    }
 }
     
