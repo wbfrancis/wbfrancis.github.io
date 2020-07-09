@@ -311,7 +311,7 @@ const gameCards = {
     },
     99: {
         back: 0,
-        narration: "You have lived many lives, some short, some long, some quite touching, some very stupid. The time comes for you to transcend your limited reality. You fall into a deep sleep with no dreams.<br><br>You wake up on March 11, 2020. You are somehow aware that Tom Hanks has just tested positive for the novel coronavirus. You see on your television (a kind of cube) that the governor of your state is urging people to do something called “social distancing” and to stay inside their homes whenever possible. You look around your home.<br><br>It’s another cube.<br><br>Goddammit.",
+        narration: "You have lived many lives, some short, some long, some quite touching, some very stupid. The time has come for you to transcend your limited reality. You fall into a deep sleep with no dreams.<br><br>You wake up on March 11, 2020. You are somehow aware that Tom Hanks has just tested positive for the novel coronavirus. You see on your television (a kind of cube) that the governor of your state is urging people to do something called “social distancing” and to stay inside their homes whenever possible. You look around your home.<br><br>It’s another cube.<br><br>Goddammit.",
         choices: null
     }
 }
