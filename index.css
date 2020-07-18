@@ -177,7 +177,7 @@ svg:hover image{
  
 .panel {
     stroke-width: 1;
-    fill-opacity: 0;
+    fill-opacity: .7;
     pointer-events: all;
 }
 
