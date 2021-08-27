@@ -219,7 +219,7 @@ const gameCards = {
     },
     22: {
         back: 20,
-        narration: "You scrap the PowerPoint and deliver an impassioned oration on the virtues of doors in walls. Quickly running out of substantive things to say, you come up with a catchy slogan on the spot: \"Doors are cubes, let them in!\" You repeat this to the cube several dozen times and wrap up your speech, feeling good. The next morning, you see in the wall of the cube a plain white door.",
+        narration: "You scrap the PowerPoint and deliver an impassioned oration on the virtues of doors in walls. Quickly running out of substantive things to say, you come up with a catchy slogan on the spot: \"Doors are cubes, let them in!\" You repeat this to the cube several dozen times and wrap up your speech, feeling good.\n\nThe next morning, you see in the wall of the cube a plain white door.",
         choices: [
             {
                 text: "Open the door.",
