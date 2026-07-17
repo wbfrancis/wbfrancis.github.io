@@ -1,0 +1,25 @@
+.archive-notice {
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 2147483647;
+  margin: 0;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ffffff;
+  background: #000000;
+  color: #ffffff;
+  font: 14px/1.2 Times, "Times New Roman", serif;
+  letter-spacing: normal;
+  text-shadow: none;
+}
+
+.archive-notice a,
+.archive-notice a:visited {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.archive-notice a:focus-visible {
+  outline: 2px dotted #ffffff;
+  outline-offset: 2px;
+}

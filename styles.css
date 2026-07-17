@@ -1,0 +1,128 @@
+:root {
+  color-scheme: light;
+  --paper: #ddeedd;
+  --ink: #000000;
+  --link: #0000ee;
+  --visited: #551a8b;
+  --rule: #98aa98;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0.5rem 0.75rem 2rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Times, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+header h1 {
+  margin: 0.9rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+h2 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1.17rem;
+}
+
+p {
+  margin: 0.8rem 0;
+}
+
+hr {
+  margin: 1.2rem 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.08em;
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+a:focus-visible {
+  outline: 2px dotted currentColor;
+  outline-offset: 3px;
+}
+
+.entry {
+  padding-left: 1rem;
+  text-indent: -1rem;
+}
+
+.quiet {
+  color: #314331;
+  font-size: 0.94rem;
+}
+
+footer {
+  margin-top: 1rem;
+}
+
+.photo-page {
+  max-width: 70rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+figure {
+  margin: 0;
+}
+
+figure a {
+  display: block;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: 15rem;
+  border: 1px solid var(--rule);
+  object-fit: cover;
+}
+
+figcaption {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 42rem) {
+  body {
+    padding-inline: 0.7rem;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  figure img {
+    height: auto;
+    max-height: 75vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
